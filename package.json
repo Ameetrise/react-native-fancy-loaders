@@ -1,0 +1,76 @@
+{
+  "name": "react-native-fancy-loaders",
+  "version": "0.1.0",
+  "description": "Accessible, customizable loading experiences for React Native.",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "react-native": "./src/index.ts",
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "LICENSE",
+    "docs",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "workspaces": [
+    "example"
+  ],
+  "scripts": {
+    "build": "node scripts/clean-build.cjs && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit && tsc -p example/tsconfig.json --noEmit",
+    "test": "npm run build && node --test tests/*.test.js",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
+    "example": "npm start --workspace example",
+    "prepack": "npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm run check"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20",
+    "react-native": ">=0.76.0 <1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.0",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-web": "0.21.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "react-native": "./src/index.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "ios",
+    "android",
+    "loader",
+    "loading",
+    "animation",
+    "healthcare",
+    "fitness"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
